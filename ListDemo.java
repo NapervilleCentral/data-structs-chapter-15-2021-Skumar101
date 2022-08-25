@@ -18,23 +18,33 @@ public class ListDemo
       // | in the comments indicates the iterator position
       ListIterator<String> iterator = staff.listIterator();// |DHRT
 
-      iterator.next();  // DHRT
-      iterator.next();  // DHRT
+      iterator.next();  // D|HRT
+      iterator.next();  // DH|RT
 
       // Add more elements after second element
 
-      iterator.add("Juliet");              // DHJRT
-      iterator.add("Nina");              // DHJNRT
+      iterator.add("Juliet");              // DHJ|RT
+      iterator.add("Nina");              // DHJN|RT
 
-      iterator.next();              // DHJNRT
+      iterator.next();              // DHJNR|T
 
       // Remove last traversed element
 
-      iterator.remove();              // DHJNT
-
+      iterator.remove();              // DHJN|T
+      
       // Print all elements
 
       System.out.println(staff);
       System.out.println("Expected: [Diana, Harry, Juliet, Nina, Tom]");
+      
+      
+      iterator.add("Cat");
+      iterator.add("Ben");
+      iterator.add("Broom");
+      iterator.add("An");
+      iterator.add("Beach");
+      iterator.add("Friday");
+      iterator = staff.listIterator();
+      System.out.println(iterator.next());
    }
 }
