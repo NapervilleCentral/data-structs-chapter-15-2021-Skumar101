@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Business
+comment0.text=\r\n\ \ \ Business\ utility\ methods.\r\n
+comment1.params=employeeNames\ n
+comment1.target=void\ downsize(java.util.LinkedList,\ int)
+comment1.text=\r\n\ \ \ \ \ \ Removes\ every\ nth\ element\ from\ the\ linked\ list\r\n\ \ \ \ \ \ @param\ employeeNames\ the\ linked\ list\ to\ remove\ from\r\n\ \ \ \ \ \ @param\ n\ the\ parameter\ to\ determine\ "nth"\r\n
+numComments=2
