@@ -25,6 +25,7 @@ public class setExamples
        words.add("Doug");
        words.add("Eat");
        words.add("Follow");
+       words.add("Whole");
        words.add("Gate");
        words.add("Hello");
        words.add("Icicle");
