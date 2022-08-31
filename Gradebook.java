@@ -11,10 +11,8 @@ public class Gradebook
       
       boolean done = false;
       Map <String, Double> Gradebook = new HashMap<>();
+      Set <String> keys = new HashSet<>();
       
-      Gradebook.put("John", 4.0);
-      Gradebook.put("Jack", 2.0);
-      Gradebook.put("Jill", 3.0);
       while(!done)
       {
          System.out.println("A)dd R)emove M)odify P)rint Q)uit");
@@ -47,7 +45,12 @@ public class Gradebook
          }
          else if (input.equalsIgnoreCase("P"))
          {
-            
+             keys = Gradebook.keySet();
+             for(String key: keys)
+             {
+                 System.out.println(key+"'s GPA: "+Gradebook.get(key));
+                }
+             
          }
          else
          {
