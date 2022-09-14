@@ -25,8 +25,11 @@ public class StringLengthMap
          {
             String word = clean(in.next());
             Integer len = word.length();
+            if(!SLM.containsKey(len))
+                SLM.put(len, word+", ");
+            else
+                SLM.put(len, SLM.get(len)+word+", ");
             
-            SLM.put(len, SLM.get(len)+word+", ");
             if(len>greatest)
                 greatest = len;
             // Update the map here
@@ -36,7 +39,13 @@ public class StringLengthMap
 
          }
             
-         //for(int i = 0; i<
+         for(int i = 0; i<greatest; i++)
+         {
+             if(SLM.containsKey(i))
+             {
+                 System.out.print(SLM.get(i));
+                }
+            }
          
          // Print the strings, in increasing order of their length
          // Use this format: 1: i, a, i
