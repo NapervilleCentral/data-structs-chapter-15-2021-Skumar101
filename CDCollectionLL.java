@@ -30,17 +30,19 @@ public class CDCollectionLL
    *  @param
    */
    public void addCD (String title, String artist, double cost,
-                      int tracks)
+                      int tracks, int rate)
    {
-    CD lol = new CD(title, artist, cost, tracks);
-       if(Collection.size()==0)
+    CD lol = new CD(title, artist, cost, tracks, rate);   
+    if(Collection.size()==0)
     {
         Collection.add(lol);
     }
     else
     {
-        while(iterator.hasNext()){
-        if(lol.compareTo(iterator.next())>0)
+        for(int i =0; i<Collection.size(); i++)
+        {
+        CD lmao = iterator.next();
+        if(lol.compareTo(lmao)>0)
             {
                 iterator.add(lol);
             }
