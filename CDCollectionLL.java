@@ -30,7 +30,7 @@ public class CDCollectionLL
    *  @param
    */
    public void addCD (String title, String artist, double cost,
-                      int tracks, int rate)
+                      int tracks, double rate)
    {
     CD lol = new CD(title, artist, cost, tracks, rate);   
     if(Collection.size()==0)
@@ -41,13 +41,31 @@ public class CDCollectionLL
     {
         for(int i =0; i<Collection.size(); i++)
         {
-        CD lmao = iterator.next();
-        if(lol.compareTo(lmao)>0)
+            if(lol.compareTo(Collection.get(i))>=0)
             {
-                iterator.add(lol);
+                CD first = Collection.get(i);
+                Collection.add(i,lol);
+                int size = Collection.size();
+                for(int j = i+1; j<size; j++)
+                {
+                    if((j+1)==Collection.size())
+                    {
+                        Collection.addLast(Collection.remove(j));
+                    }
+                    else
+                        {Collection.add(j+1, Collection.remove(j));}
+                }
+                Collection.add(i+1, first);
+                break;
             }
         }
+        if(!Collection.contains(lol))
+        {
+            Collection.addLast(lol);
+        }
     }
+    count++;
+    totalCost+=cost;
    }
 
    /**
@@ -66,8 +84,10 @@ public class CDCollectionLL
       report += "\n\nCD List:\n\n";
 
       //loop thru collection and display all the CD
-
-         //report += //CDtoString() + "\n";
+        for(CD SeeDee:Collection)
+        {
+         report += SeeDee.toString() + "\n";
+        }
 
       return report;
    }

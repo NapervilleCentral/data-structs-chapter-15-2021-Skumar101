@@ -54,8 +54,8 @@ public class CD
 
       String description;
 
-      description = fmt.format(cost) + "\t" + tracks + "\t";
-      description += title + "\t" + artist+ "\t"+ rating;
+      description = "Cost: "+fmt.format(cost) + "\t" +"Tracks: "+ tracks + "\t";
+      description += "Title: "+title + "\t" +"Artist: "+ artist+ "\t"+ "Rating: "+rating;
 
       return description;
    }
