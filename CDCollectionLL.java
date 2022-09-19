@@ -53,7 +53,9 @@ public class CDCollectionLL
                         Collection.addLast(Collection.remove(j));
                     }
                     else
-                        {Collection.add(j+1, Collection.remove(j));}
+                        {Collection.add(j+1, Collection.remove(j));
+                        }
+                    System.out.println(Collection);
                 }
                 Collection.add(i+1, first);
                 break;
@@ -84,11 +86,10 @@ public class CDCollectionLL
       report += "\n\nCD List:\n\n";
 
       //loop thru collection and display all the CD
-        for(CD SeeDee:Collection)
+        for(int x = 0; x<Collection.size(); x++)
         {
-         report += SeeDee.toString() + "\n";
+         report += Collection.get(x).toString() + "\n";
         }
-
       return report;
    }
 
