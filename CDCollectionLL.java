@@ -6,6 +6,7 @@
 
 import java.text.NumberFormat;
 import java.util.*;
+import java.util.PriorityQueue;
 public class CDCollectionLL
 {
    //private collection;// make LL
@@ -13,6 +14,7 @@ public class CDCollectionLL
    private double totalCost;
    private LinkedList<CD> Collection = new LinkedList<>();
    private ListIterator<CD> iterator = Collection.listIterator();
+   PriorityQueue <CD> q = new PriorityQueue<>();
    /**
    *  Creates an initially empty collection.
    */
@@ -33,41 +35,22 @@ public class CDCollectionLL
                       int tracks, double rate)
    {
     CD lol = new CD(title, artist, cost, tracks, rate);   
-    if(Collection.size()==0)
+    q.add(lol);
+    if(Collection.size()!=0)
     {
-        Collection.add(lol);
+    q.addAll(Collection);
+    Collection.clear();
+    int size = q.size();
+    for(int i = 0; i<size; i++)
+    {
+        Collection.addLast(q.remove());
     }
+}
     else
-    {
-        for(int i =0; i<Collection.size(); i++)
-        {
-            if(lol.compareTo(Collection.get(i))>=0)
-            {
-                CD first = Collection.get(i);
-                Collection.add(i,lol);
-                int size = Collection.size();
-                for(int j = i+1; j<size; j++)
-                {
-                    if((j+1)==Collection.size())
-                    {
-                        Collection.addLast(Collection.remove(j));
-                    }
-                    else
-                        {Collection.add(j+1, Collection.remove(j));
-                        }
-                    System.out.println(Collection);
-                }
-                Collection.add(i+1, first);
-                break;
-            }
-        }
-        if(!Collection.contains(lol))
-        {
-            Collection.addLast(lol);
-        }
-    }
+        {Collection.add(q.remove());}
     count++;
     totalCost+=cost;
+    
    }
 
    /**

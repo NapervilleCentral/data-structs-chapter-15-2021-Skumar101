@@ -39,11 +39,11 @@ public class StringLengthMap
 
          }
             
-         for(int i = 0; i<greatest; i++)
+         for(int i = 0; i<=greatest; i++)
          {
              if(SLM.containsKey(i))
              {
-                 System.out.print(SLM.get(i));
+                 System.out.println(""+i+":"+SLM.get(i));
                 }
             }
          

@@ -6,7 +6,7 @@
 
 import java.text.NumberFormat;
 
-public class CD
+public class CD implements Comparable
 {
    private String title, artist;
    private double cost;
@@ -41,9 +41,10 @@ public class CD
    {
        return rating;
     }
-   public int compareTo(CD other)
+   
+   public int compareTo(Object other)
      {
-         return (int)(this.rating-other.getRating());
+         return (int)(this.rating-((CD)other).getRating());
       }
    //-----------------------------------------------------------------
    //  Returns a description of this CD.
