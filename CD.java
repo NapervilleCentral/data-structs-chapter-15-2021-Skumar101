@@ -44,7 +44,13 @@ public class CD implements Comparable
    
    public int compareTo(Object other)
      {
-         return (int)(this.rating-((CD)other).getRating());
+         CD Other = (CD) other;
+         if(this.rating> Other.getRating())
+            return 1;
+         else if(this.rating< Other.getRating())
+            return -1;
+         else
+            return 0;
       }
    //-----------------------------------------------------------------
    //  Returns a description of this CD.

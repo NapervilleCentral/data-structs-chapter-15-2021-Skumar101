@@ -2,11 +2,11 @@
 comment0.target=CDCollectionLL
 comment1.params=
 comment1.target=CDCollectionLL()
-comment1.text=\r\n\ \ Creates\ an\ initially\ empty\ collection.\r\n
+comment1.text=\n\ \ Creates\ an\ initially\ empty\ collection.\n
 comment2.params=title\ artist\ cost\ tracks\ rate
 comment2.target=void\ addCD(java.lang.String,\ java.lang.String,\ double,\ int,\ double)
-comment2.text=\r\n\ \ Adds\ a\ CD\ to\ the\ collection,\ keeping\ list\ in\ order\ according\ to\r\n\ \ \ \ \ \ \ \ \ rating.\r\n\ \ @param\r\n
+comment2.text=\n\ \ Adds\ a\ CD\ to\ the\ collection,\ keeping\ list\ in\ order\ according\ to\n\ \ \ \ \ \ \ \ \ rating.\n\ \ @param\n
 comment3.params=
 comment3.target=java.lang.String\ toString()
-comment3.text=\r\n\ \ Returns\ a\ report\ describing\ the\ CD\ collection.\r\n
+comment3.text=\n\ \ Returns\ a\ report\ describing\ the\ CD\ collection.\n
 numComments=4

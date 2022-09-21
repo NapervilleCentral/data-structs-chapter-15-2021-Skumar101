@@ -40,14 +40,13 @@ public class CDCollectionLL
     {
     q.addAll(Collection);
     Collection.clear();
+}
     int size = q.size();
     for(int i = 0; i<size; i++)
     {
         Collection.addLast(q.remove());
     }
-}
-    else
-        {Collection.add(q.remove());}
+
     count++;
     totalCost+=cost;
     
@@ -69,9 +68,9 @@ public class CDCollectionLL
       report += "\n\nCD List:\n\n";
 
       //loop thru collection and display all the CD
-        for(int x = 0; x<Collection.size(); x++)
+        for(CD x: Collection)
         {
-         report += Collection.get(x).toString() + "\n";
+         report += x.toString() + "\n";
         }
       return report;
    }
