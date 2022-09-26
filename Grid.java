@@ -12,12 +12,12 @@ public class Grid
    */
    public void floodfill(int row, int column)
    {
-       if(pixels[row][column] ==0)
-           {pixels[row][column]=count;}
+       if(nums.size()==0)
+       {pixels[row][column]=count;}
      if(count<(SIZE*SIZE))
      {
-         count++;
-         if(row!=0)
+        count++;
+         if(row!=0&&count<100)
          {
          if(pixels[row-1][column]==0)
          {
@@ -26,7 +26,7 @@ public class Grid
              count++;
             }
         }
-        if(column+1!=SIZE)
+        if(column!=SIZE-1&&count<100)
         {
         if(pixels[row][column+1]==0)
          {
@@ -35,7 +35,7 @@ public class Grid
              count++;
             }
         }
-        if(row+1!=SIZE)
+        if(row!=SIZE-1&&count<100)
         {    
         if(pixels[row+1][column]==0)
          {
@@ -44,7 +44,7 @@ public class Grid
              count++;
             }
         }
-         if(column!=0)
+         if(column!=0&&count<100)
          {   
             if(pixels[row][column-1]==0)
          {
@@ -53,14 +53,15 @@ public class Grid
              count++;
             }
         }
-         for(int r = 0; r< SIZE; r++)
+        if(count<100) 
+        {for(int r = 0; r< SIZE; r++)
             {
                 for(int c = 0; c<SIZE; c++)
                 {
                     if(pixels[r][c]==nums.peek())
-                        {if(count<100){count = nums.peek();}floodfill(r, c); break;}
+                        {if(count<100){count = nums.peek();floodfill(r, c); break;}}
                 }
-            }
+            }}
         }
      
    }
