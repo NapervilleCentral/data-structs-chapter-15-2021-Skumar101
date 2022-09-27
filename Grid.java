@@ -6,62 +6,69 @@ public class Grid
    int r;
    int c;
    Stack<Integer> nums = new Stack<>();
+   Stack<Integer> rcol = new Stack<>();
    int count =1;
    /**
       Flood fill, starting with the given row and column.
    */
    public void floodfill(int row, int column)
    {
-       if(nums.size()==0)
-       {pixels[row][column]=count;}
-     if(count<(SIZE*SIZE))
+       for(int i =100; i>=1; i--)
+       {
+           nums.add(i);
+        }
+       
+        pixels[row][column]=nums.pop();
+     while(count<(SIZE*SIZE))
      {
-        count++;
-         if(row!=0&&count<100)
+         if(row!=0)
          {
          if(pixels[row-1][column]==0)
          {
-             pixels[row-1][column] = count;
-             nums.add(pixels[row-1][column]);
+             pixels[row-1][column] = nums.pop();
+             rcol.add(pixels[row-1][column]);
              count++;
             }
         }
-        if(column!=SIZE-1&&count<100)
+        if(column!=SIZE-1)
         {
         if(pixels[row][column+1]==0)
          {
-             pixels[row][column+1] = count;
-             nums.add(pixels[row][column+1]);
+             pixels[row][column+1] = nums.pop();
+             rcol.add(pixels[row][column+1]);
              count++;
             }
         }
-        if(row!=SIZE-1&&count<100)
+        if(row!=SIZE-1)
         {    
         if(pixels[row+1][column]==0)
          {
-             pixels[row+1][column] = count;
-             nums.add(pixels[row+1][column]);
+             pixels[row+1][column] = nums.pop();
+             rcol.add(pixels[row+1][column]);
              count++;
             }
         }
-         if(column!=0&&count<100)
+         if(column!=0)
          {   
             if(pixels[row][column-1]==0)
          {
-             pixels[row][column-1] = count;
-             nums.add(pixels[row][column-1]);
+             pixels[row][column-1] = nums.pop();
+             rcol.add(pixels[row][column-1]);
              count++;
             }
         }
-        if(count<100) 
-        {for(int r = 0; r< SIZE; r++)
+        int lastnum = rcol.pop();
+        for(int r = 0; r<SIZE; r++)
+        {
+            for(int c = 0; c<SIZE; c++)
             {
-                for(int c = 0; c<SIZE; c++)
+                if(pixels[r][c] == lastnum)
                 {
-                    if(pixels[r][c]==nums.peek())
-                        {if(count<100){count = nums.peek();floodfill(r, c); break;}}
+                    row = r;
+                    column = c;
                 }
-            }}
+            }
+        }
         }
      
    }
